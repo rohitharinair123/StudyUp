@@ -21,8 +21,9 @@ import edu.studyup.util.DataStorage;
 import edu.studyup.util.StudyUpException;
 
 class EventServiceImplTest {
-
-	EventServiceImpl eventServiceImpl;
+	
+	//Because Spotbug says so
+	//EventServiceImpl eventServiceImpl;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -135,6 +136,18 @@ class EventServiceImplTest {
 			eventServiceImpl.addStudentToEvent(student3, 1);
 		});
 
+	}
+
+	@Test
+	void methodName_event_null_badcases() {
+		Event event = null;
+		Assertions.assertThrows(StudyUpException.class, () -> {
+		eventServiceImpl.updateEvent(event);
+	});
+	}
+	@Test
+	void testBadCase() {
+		assertEquals(DataStore.eventData.size(),1);
 	}
 
 	@Test
@@ -251,6 +264,4 @@ class EventServiceImplTest {
 		}
 		assert(DataStorage.eventData.get(event.getEventID()).getStudents().size() == 1);
 	}
-
-
 }

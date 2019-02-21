@@ -44,9 +44,10 @@ public class Event {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-
+	//Cause spotbugs
 	public Date getDate() {
-		return date;
+		Date dateCopy = new Date(date.getTime());
+		return dateCopy;
 	}
 
 	public void setDate(Date date) {
