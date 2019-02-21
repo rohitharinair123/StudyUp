@@ -21,8 +21,9 @@ import edu.studyup.util.DataStorage;
 import edu.studyup.util.StudyUpException;
 
 class EventServiceImplTest {
-
-	EventServiceImpl eventServiceImpl;
+	
+	//Because Spotbug says so
+	//EventServiceImpl eventServiceImpl;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -136,10 +137,7 @@ class EventServiceImplTest {
 		});
 
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> cff6ceea8a4446e65ec671fe98dfae6a2ae6e130
+
 	@Test
 	void methodName_event_null_badcases() {
 		Event event = null;

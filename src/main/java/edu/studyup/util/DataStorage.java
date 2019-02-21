@@ -13,6 +13,7 @@ import edu.studyup.entity.Event;
  * @author Shivani
  * 
  */
+//Final cause spotBugs
 public class DataStorage {
-	public static Map<Integer, Event> eventData = new HashMap<Integer, Event>();
+	final public static Map<Integer, Event> eventData = new HashMap<Integer, Event>();
 }
