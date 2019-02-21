@@ -62,22 +62,20 @@ class EventServiceImplTest {
 	}
 
 	@Test
-	void testUpdateEventName_GoodCase() {
-		Event event = new Event();
-		event.setEventID(1);
-		event.setName("Renamed Event 1");
-		eventServiceImpl.updateEvent(event);
-		assertEquals("Renamed Event 1", DataStorage.eventData.get(event.getEventID()).getName());
+	void testUpdateEventName_GoodCase() throws StudyUpException {
+		int eventID = 1;
+		eventServiceImpl.updateEventName(eventID, "Renamed Event 1");
+		assertEquals("Renamed Event 1", DataStorage.eventData.get(eventID).getName());
 	}
 	
 	@Test
-	@Disabled
-	void testUpdateEvent_badCase() {
-		Event event = null;
+	void testUpdateEvent_WrongEventID_badCase() {
+		int eventID = 3;
 		Assertions.assertThrows(StudyUpException.class, () -> {
-			eventServiceImpl.updateEvent(event);
+			eventServiceImpl.updateEventName(eventID, "Renamed Event 3");
 		  });
 	}
+<<<<<<< HEAD
 	@Test
 	void methodName_event_null_badcases() {
 		Event event = null;
@@ -90,4 +88,7 @@ class EventServiceImplTest {
 		assertEquals(DataStore.eventData.size(),1);
 	}
 
+=======
+	
+>>>>>>> 1ba9f98cb8c9d0ab314a251b98399a2b0bfb101b
 }
