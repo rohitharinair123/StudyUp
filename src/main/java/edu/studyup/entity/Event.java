@@ -50,8 +50,10 @@ public class Event {
 		return dateCopy;
 	}
 
+	// Spotbugs fix
 	public void setDate(Date date) {
-		this.date = date;
+		Date dateCopy = new Date(date.getTime());
+		this.date = dateCopy;
 	}
 
 	public int getEventID() {
